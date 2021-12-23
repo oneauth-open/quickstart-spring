@@ -1,0 +1,22 @@
+server:
+  port: 8000
+spring:
+  thymeleaf:
+    cache: false
+  security:
+    oauth2:
+      client:
+        registration:
+          oneauth:
+            client-name: oneauth
+            client-id: {替换为您的:client-id}
+            client-secret: {替换为您的:client-secret}
+            redirect-uri: '{baseUrl}/login/oauth2/code/{registrationId}'
+            client-authentication-method: post
+            scope:
+              - openid
+              - profile
+        provider:
+          oneauth:
+            issuer-uri: https://{{替换为您的租户域名:tenant}}.oneauth.cn/oauth/v1
+            user-name-attribute: name
